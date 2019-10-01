@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" >
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Listado de Clientes</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h3>Listado de Clientes</h3>
+    <div class="col-md-12">
+        <a th:href="@{/customers/add}" class="btn btn-primary">Agregar clientes</a>
+    </div>
+
+    <div th:switch="customers" >
+        <div th:case="*">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellido paterno</th>
+                    <th scope="col">Apellido materno</th>
+                    <th scope="col">Correo electronico</th>
+                    <th scope="col">Distrito</th>
+                    <th scope="col">Telefono</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="customer : ${customers}">
+                    <th scope="row" th:text="${customer.getCodCli()}" ></th>
+                    <td th:text="${customer.name}"></td>
+                    <td th:text="${customer.lastNameFather}"></td>
+                    <td th:text="${customer.lastNameMother}"></td>
+                    <td th:text="${customer.email}"></td>
+                    <td th:text="${customer.place}"></td>
+                    <td th:text="${customer.phone}"></td>
+
+
+                    <td class="text-right">
+                        <div class="btn-group">
+
+                            <a th:href="@{/customers/edit/{codCli}
+                                    (codCli=${customer.codCli})}"
+                               class="btn btn-primary btn-sm">Editar</a>
+
+                            <a th:href="@{/customers/delete/{codCli}
+                                (codCli=${customer.codCli})}"
+                               class="btn btn-danger btn-sm">Eliminar</a>
+
+                        </div>
+                    </td>
+
+                </tr>
+                </tbody>
+
+            </table>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>

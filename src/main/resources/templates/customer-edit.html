@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" >
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Editar Clientes</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h3>Editar Clientes</h3>
+
+    <div>
+
+        <form action="#" method="post"
+              th:object="${customer}"
+              th:action="@{/customers/update/{codCli} (codCli=${customer.codCli})} "
+        >
+
+            <div class="form-group">
+                <label for="codCli">Codigo</label>
+                <input type="text" class="class-controller"
+                       id="codCli" placeholder="ingrese el codigo"
+                       th:field="*{codCli}"
+                       disabled
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="class-controller"
+                       id="name" placeholder="ingrese el nombre"
+                       th:field="*{name}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameFather">lastNameFather</label>
+                <input type="text" class="class-controller"
+                       id="lastNameFather" placeholder="ingrese el apellido"
+                       th:field="*{lastNameFather}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="lastNameMother">lastNameMother</label>
+                <input type="text" class="class-controller"
+                       id="lastNameMother" placeholder="ingrese el apellido"
+                       th:field="*{lastNameMother}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo electronico</label>
+                <input type="email" class="class-controller"
+                       id="email" placeholder="ingrese correo electronico"
+                       th:field="*{email}"
+                >
+            </div>
+            <div class="form-group">
+                <label for="place"> Distrito</label>
+                <input type="text" class="class-controller"
+                       id="place" placeholder="ingrese distrito"
+                       th:field="*{place}"
+                >
+            </div>
+            <div class="form-group">
+                <label for="phone"> Telefono</label>
+                <input type="text" class="class-controller"
+                       id="phone" placeholder="ingrese el telefono"
+                       th:field="*{phone}"
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Editar Clientes
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+
+</body>
+</html>
